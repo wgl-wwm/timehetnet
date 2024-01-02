@@ -65,9 +65,9 @@ for sps in [0,1,2,3,4]:
             n = ((qx,sx,sy),qy)
             tasks.append(n)
 
-        os.system(f"mkdir -p ./splits/")
-        os.system(f"mkdir -p ./splits/{args.split}_control_test_better")
-        np.save(f"splits/{args.split}_control_test_better/control_test{f}.npy", np.array(tasks))
+        os.system(f"mkdir -p /kaggle/output/splits/")
+        os.system(f"mkdir -p /kaggle/output/splits/{args.split}_control_test_better")
+        np.save(f"/kaggle/output/splits/{args.split}_control_test_better/control_test{f}.npy", np.array(tasks,dtype=object))
         del(test_gen)
         del(tasks)
         gc.collect()

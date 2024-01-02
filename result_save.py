@@ -25,10 +25,10 @@ def save_results(args, history, ts_loss=None, key=None, randomnumber=None):
     date = datetime.datetime.now().strftime("%b-%d-%Y-%H:%M:%S")
     if key is not None:
         date = key
-    os.system(f"mkdir -p ./results/")
-    os.system(f"mkdir -p ./results/{date}")
+    os.system(f"mkdir -p /kaggle/working/results/")
+    os.system(f"mkdir -p /kaggle/working/results/{date}")
     
-    np.save(f"./results/{date}/{args.split}_{randomnumber}_results.npy",to_save)
+    np.save(f"/kaggle/working/results/{date}/{args.split}_{randomnumber}_results.npy",to_save)
     
     conf = ""
     for arg in vars(args):
@@ -40,6 +40,6 @@ def save_results(args, history, ts_loss=None, key=None, randomnumber=None):
     conf = conf + "\n" + ts_loss[-1]
     for b in ts_loss[-2]:
         conf = conf + f"\n {b}"
-    with open(f"./results/{date}/{args.split}_{randomnumber}_args.txt", "w") as text_file:
+    with open(f"/kaggle/working/results/{date}/{args.split}_{randomnumber}_args.txt", "w") as text_file:
         text_file.write(conf)
-    return f"./results/{date}/{randomnumber}"
+    return f"/kaggle/working/results/{date}/{randomnumber}"
