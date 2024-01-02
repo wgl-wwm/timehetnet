@@ -47,7 +47,7 @@ args.control_mode = True
 args.control_steps = 0
 args.better_norm = True
 fs = [5,6,7,8,9,10]
-for sps in [0,1,2,3,4]:
+for sps in [4]:
     args.split = sps
     for f in fs:
         args.min_f, args.max_f = f, f
