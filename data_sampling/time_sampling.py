@@ -24,7 +24,7 @@ def openTimeSeries(path):
     elif path.endswith(".pkl.npy"):
         return np.nan_to_num(np.load(path,allow_pickle=True))
     elif path.endswith(".npy"):
-        return np.nan_to_num(np.load(path))
+        return np.nan_to_num(np.load(path,allow_pickle=True))
     else:
         return [np.nan_to_num(np.load(os.path.join(path,i))) for i in  os.listdir(path)]
 
